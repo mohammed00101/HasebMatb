@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    android:background="@drawable/bg"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.abdulrahman.hasebmatb.activities.LoginActivity" >
+
+
+<LinearLayout
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    >
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:src="@drawable/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+<com.abdulrahman.hasebmatb.helper.CustomTextView
+    android:id="@+id/login_signupTxt"
+    android:layout_width="match_parent"
+    android:textSize="15dp"
+    android:textDirection="rtl"
+    android:textColor="#fff"
+    android:paddingRight="38dp"
+    android:layout_marginTop="20dp"
+    android:text="مستخدم جديد ؟ سجل الأن "
+    android:layout_height="wrap_content" />
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/signup_phone"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:weightSum="2"
+        android:layout_marginRight="30dp"
+        android:paddingRight="5dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/rounded_edittext"
+        android:layout_marginTop="10dp">
+
+
+        <com.abdulrahman.hasebmatb.helper.CustomEditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="الإيميل"
+            android:layout_marginLeft="20dp"
+            android:textColor="#99a0ab"
+            android:layout_weight="1"
+            android:textColorHint="#99a0ab"
+            android:paddingRight="10dp"
+            android:gravity="center_vertical"
+            tools:ignore="RtlCompat"
+            android:id="@+id/login_email_editTxt"/>
+        <ImageView
+            android:src="@drawable/email"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_width="60dp"
+            android:layout_height="40dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:weightSum="2"
+        android:layout_marginRight="30dp"
+        android:paddingRight="5dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/rounded_edittext"
+        android:layout_marginTop="10dp">
+
+
+        <com.abdulrahman.hasebmatb.helper.CustomEditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="كلمة السر"
+            android:layout_marginLeft="20dp"
+            android:textColor="#99a0ab"
+            android:layout_weight="1"
+            android:textColorHint="#99a0ab"
+            android:paddingRight="10dp"
+            android:gravity="center_vertical"
+            tools:ignore="RtlCompat"
+            android:id="@+id/login_password_editTxt" />
+        <ImageView
+            android:src="@drawable/lock"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_width="60dp"
+            android:layout_height="40dp" />
+    </LinearLayout>
+    <com.abdulrahman.hasebmatb.helper.CustomTextView
+        android:id="@+id/login_forgetPassTxt"
+        android:layout_width="match_parent"
+        android:textSize="15dp"
+        android:textDirection="rtl"
+        android:textColor="#ffffff"
+        android:paddingRight="38dp"
+        android:layout_marginTop="5dp"
+        android:text="هل نسيت كلمة السر ؟"
+        android:layout_height="wrap_content" />
+    <com.abdulrahman.hasebmatb.helper.CustomButton
+        android:background="@drawable/rounded_btn"
+        android:layout_width="match_parent"
+        android:text="تسجيل الدخول "
+        android:id="@+id/login_login"
+        android:textColor="#fff"
+        android:layout_marginLeft="70dp"
+         android:textSize="15sp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="50dp"
+        android:layout_height="40dp"
+        android:onClick="send_login_data" />
+    <com.abdulrahman.hasebmatb.helper.CustomButton
+        android:id="@+id/login_skiptoHome"
+        android:background="@drawable/rounded_btn"
+        android:layout_width="match_parent"
+        android:text="دخول بدون تسجيل"
+        android:textColor="#fff"
+        android:layout_marginLeft="70dp"
+        android:textSize="15sp"
+        android:layout_marginRight="70dp"
+        android:layout_marginBottom="20dp"
+
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp" />
+</LinearLayout>
+</ScrollView>

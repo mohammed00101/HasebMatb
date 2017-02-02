@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@drawable/rounded_btn"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="160dp">
+
+    <com.abdulrahman.hasebmatb.helper.CustomTextView
+        android:id="@+id/username_textview"
+        android:textColor="#fff"
+        android:text="Ahmed mohamed"
+        android:paddingLeft="10dp"
+        android:textSize="17sp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content" />
+    <com.abdulrahman.hasebmatb.helper.CustomTextView
+        android:id="@+id/location_textview"
+        android:textColor="#fff"
+        android:text="Tanta"
+        android:paddingLeft="10dp"
+        android:textSize="12sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <com.abdulrahman.hasebmatb.helper.CustomTextView
+        android:id="@+id/post_textview"
+        android:textColor="#fff"
+        android:text="Ahmed \n mo\nhamed"
+        android:paddingLeft="10dp"
+        android:gravity="center"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:textSize="17sp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content" />
+    <com.abdulrahman.hasebmatb.helper.CustomTextView
+        android:id="@+id/time_textview"
+        android:textColor="#fff"
+        android:text="1 min ago"
+        android:paddingRight="10dp"
+        android:gravity="right"
+
+        android:textSize="12sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

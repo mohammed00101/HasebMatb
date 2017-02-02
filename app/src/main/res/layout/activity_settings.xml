@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:gravity="right"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+        <com.abdulrahman.hasebmatb.helper.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الإعدادت"
+
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@drawable/toolbar_dropshadow"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.abdulrahman.hasebmatb.helper.CustomButton
+                    android:layout_weight="1"
+                    android:id="@+id/ringtoneBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingRight="10dp"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:gravity="right|center_vertical"
+                    android:background="@drawable/new_button"
+                    android:textColor="@color/DarkGrey"
+                    android:text=" نغمة التنبيه" />
+                <RelativeLayout
+                    android:layout_width="50dp"
+                    android:layout_height="50dp">
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="#e3e6e9"
+                        />
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/alarm"
+                        android:layout_margin="10dp"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <Switch
+                android:id="@+id/switchOnOffAlarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:textOff="@string/set_alarm"
+
+                android:textOn="@string/disable_alarm"
+                />
+                <com.abdulrahman.hasebmatb.helper.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="تفعيل الاهتزاز"
+                    android:layout_weight="2"
+                    android:textSize="20sp"
+                    android:layout_marginRight="10dp"
+                    android:layout_gravity="right|center"
+
+                    android:textColor="@color/DarkGrey"/>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Switch
+                    android:id="@+id/switchStopAlarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:textOff="@string/set_alarm"
+                    android:textOn="@string/disable_alarm"
+                    />
+                <com.abdulrahman.hasebmatb.helper.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="إيقاف التنبية"
+                    android:layout_weight="2"
+                    android:textSize="20sp"
+                    android:layout_marginRight="10dp"
+                    android:layout_gravity="right|center"
+
+                    android:textColor="@color/DarkGrey"/>
+            </LinearLayout>
+
+
+            <com.abdulrahman.hasebmatb.helper.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" المسافه بين السيارة والمطب وقت التنبية بالمتر "
+                android:layout_marginTop="15dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/DarkGrey"/>
+            <com.abdulrahman.hasebmatb.helper.CustomEditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="200"
+                android:id="@+id/distanceFromMtbTxt"
+                android:background="@drawable/et_design"
+                android:textColor="@color/DarkGrey"/>
+
+            <LinearLayout
+
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <com.abdulrahman.hasebmatb.helper.CustomButton
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingRight="10dp"
+                    android:textSize="20dp"
+                    android:textAllCaps="false"
+                    android:layout_weight="1"
+                    android:gravity="right|center_vertical"
+                    android:background="@drawable/new_button"
+                    android:id="@+id/find_friends_on_facebook"
+                    android:textColor="@color/DarkGrey"
+                    android:text=" تواصل معنا عبر الفيس بوك " />
+                <RelativeLayout
+                    android:layout_width="50dp"
+                    android:layout_height="50dp">
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="#e3e6e9"
+                        />
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/facebook"
+                        android:layout_margin="10dp"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <com.abdulrahman.hasebmatb.helper.CustomButton
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="15dp"
+                android:textSize="17dp"
+                android:textColor="#FFFFFF"
+                android:background="#d0021b"
+                android:textStyle="normal"
+                android:id="@+id/logout"
+                android:stateListAnimator="@null"
+                android:text="تسجيل الخروج" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

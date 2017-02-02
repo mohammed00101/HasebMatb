@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "785838858182",
+    "firebase_url": "https://hasebmatab-55b24.firebaseio.com",
+    "project_id": "hasebmatab-55b24",
+    "storage_bucket": "hasebmatab-55b24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785838858182:android:2faa481b4f0538f2",
+        "android_client_info": {
+          "package_name": "com.abdulrahman.hasebmatb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785838858182-itrcpruq12v4s6f7p97pha3aq5dgvpgs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFrISX1-Vnxav11YYS8Q-sK4ZbXTYrihs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
