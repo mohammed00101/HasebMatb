@@ -69,8 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                 Constants.isFirstTimeRun = false;
                 Constants.savePreferences(getApplicationContext());
             }
-            Constants.isAlarmOn = true;
-            Constants.isUseVibrate = true;
+
         } //
 
 
@@ -121,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                     userSharedPreferences.edit().putInt("userId", userId).commit();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
+                    finish();
 
                 } catch (Exception ex) {
                     Toast.makeText(LoginActivity.this, "تأكد من الايميل وكلمة السر", Toast.LENGTH_LONG).show();

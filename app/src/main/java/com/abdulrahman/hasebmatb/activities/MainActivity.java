@@ -116,12 +116,12 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
             if (Constants.isFirstTimeRun) {
                 // Actual zoom will be performed when location service
                 // is connected
+
+                Constants.isAlarmOn=true;
+                Constants.isUseVibrate=true;
                 Constants.isFirstTimeRun = false;
                 Constants.savePreferences(getApplicationContext());
             }
-            Constants.isAlarmOn = true;
-            Constants.isUseVibrate = true;
-
 
             Constants.restorePreferences(getApplicationContext());
             int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext());
@@ -190,7 +190,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
 //            }
 
         } //
-
         //--------------------------------------------------------------------
         mTitle = mDrawerTitle = getTitle();
         mNavigationDrawerItemTitles = getResources().getStringArray(R.array.navigation_drawer_items_array);
@@ -209,9 +208,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
            // startService(new Intent(this,MyInstanceIDService.class ));
 
         }{
-
             drawerItem[3] = new DataModel(R.drawable.logout, "تسجيل الخروج");
-
         }
 
 
@@ -420,13 +417,11 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
         // Stop
         // nothing to do
     }
-
     public void push_matb(View view) {
         if( userSharedPreferences.getInt("userId", 0)==0){
             Toast.makeText(this, "برجاء تسجيل دخولك لتتمكن من اضافة مطب", Toast.LENGTH_LONG).show();
 
         }else {
-
             new WebConnectionTask(getBaseContext(), "insertMatb.php", new HashMap<String, String>() {{
                 put("userId", "" +userSharedPreferences.getInt("userId", 0));
                 String lat=location.getLatitude()+"";

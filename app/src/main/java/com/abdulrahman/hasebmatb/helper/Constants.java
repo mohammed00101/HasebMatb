@@ -81,7 +81,7 @@ public class Constants {
     public static void RunAlarm (Context context){
 //
 
-        if(isAlarmOn){
+        if(Constants.isAlarmOn){
 
             SharedPreferences settings = PreferenceManager
                     .getDefaultSharedPreferences(context);
@@ -151,10 +151,18 @@ public class Constants {
 
   }
 
-        isUseVibrate = settings.getBoolean(PREF_USE_VIBRATE,
-                false);
+        if (settings.getBoolean(PREF_IS_ALARM_ON,true)){
 
-        isAlarmOn = settings.getBoolean(PREF_IS_ALARM_ON, false);
+            isUseVibrate = settings.getBoolean(PREF_USE_VIBRATE,
+                    true);
+
+            isAlarmOn = settings.getBoolean(PREF_IS_ALARM_ON, true);
+
+            alarmSetTime = settings.getLong(PREF_ALARM_SET_TIME, 0);
+        }
+        isUseVibrate = settings.getBoolean(PREF_USE_VIBRATE, true);
+
+        isAlarmOn = settings.getBoolean(PREF_IS_ALARM_ON, true);
 
         alarmSetTime = settings.getLong(PREF_ALARM_SET_TIME, 0);
     }
@@ -180,11 +188,8 @@ public class Constants {
         editor.putLong(PREF_ALARM_SET_TIME, alarmSetTime);
 
         // no save for locationTechnique : managed by PreferenceManager
-
         editor.commit();
     }
-
-
 
 
     public static void sendNotification(Uri ringtoneUri, boolean isUseVibrate,Context context) {

@@ -86,9 +86,11 @@
             android:textColor="#99a0ab"
             android:layout_weight="1"
             android:textColorHint="#99a0ab"
+            android:inputType="textPassword"
             android:paddingRight="10dp"
             android:gravity="center_vertical"
             tools:ignore="RtlCompat"
+            android:layout_gravity="right"
             android:id="@+id/login_password_editTxt" />
         <ImageView
             android:src="@drawable/lock"

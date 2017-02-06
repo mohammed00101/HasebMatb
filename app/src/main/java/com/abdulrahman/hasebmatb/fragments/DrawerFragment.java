@@ -68,13 +68,15 @@ public class DrawerFragment extends Fragment {
         drawerItem[0] = new DataModel(R.drawable.home, "الرئيسيه");
         drawerItem[1] = new DataModel(R.drawable.news, "اخبار الطرق ");
         drawerItem[2] = new DataModel(R.drawable.setting, "اعدادات");
+        drawerItem[0] = new DataModel(R.drawable.home, "الرئيسيه");
+        drawerItem[1] = new DataModel(R.drawable.news, "اخبار الطرق ");
+        drawerItem[2] = new DataModel(R.drawable.setting, "اعدادات");
         if( userSharedPreferences.getInt("userId", 0)==0){
             drawerItem[3] = new DataModel(R.drawable.logout, "تسجيل الدخول");
+            // startService(new Intent(this,MyInstanceIDService.class ));
 
         }{
-
             drawerItem[3] = new DataModel(R.drawable.logout, "تسجيل الخروج");
-
         }
 
         adapter = new DrawerItemCustomAdapter(getActivity(),R.layout.list_view_item_row, drawerItem);
