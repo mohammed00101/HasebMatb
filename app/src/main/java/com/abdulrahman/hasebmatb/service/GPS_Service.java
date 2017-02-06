@@ -69,7 +69,7 @@ public class GPS_Service extends Service {
     @Override
     public void onCreate() {
         userSharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
-
+//
     }
 
 
