@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
                 locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
                 // Getting Current Location From GPS
+
                 location = getLastKnownLocation();
 
                 if (location != null) {
@@ -207,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
             drawerItem[3] = new DataModel(R.drawable.logout, "تسجيل الدخول");
            // startService(new Intent(this,MyInstanceIDService.class ));
 
-        }{
+        }else {
             drawerItem[3] = new DataModel(R.drawable.logout, "تسجيل الخروج");
         }
 
@@ -422,23 +423,35 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
             Toast.makeText(this, "برجاء تسجيل دخولك لتتمكن من اضافة مطب", Toast.LENGTH_LONG).show();
 
         }else {
-            new WebConnectionTask(getBaseContext(), "insertMatb.php", new HashMap<String, String>() {{
-                put("userId", "" +userSharedPreferences.getInt("userId", 0));
-                String lat=location.getLatitude()+"";
-                String longt=location.getLongitude()+"";
-                put("lat", lat );
-                put("lng", longt );
-            }}) {
-                @Override
-                public void onRespnseComplete(String response) {
-                    Toast.makeText(MainActivity.this, "تم اضافة المطب بنجاح", Toast.LENGTH_LONG).show();
+
+            try{
+
+
+                if (location!=null)   {
+                    new WebConnectionTask(getBaseContext(), "insertMatb.php", new HashMap<String, String>() {{
+                        put("userId", "" +userSharedPreferences.getInt("userId", 0));
+                        String lat=location.getLatitude()+"";
+                        String longt=location.getLongitude()+"";
+                        put("lat", lat );
+                        put("lng", longt );
+                    }}) {
+                        @Override
+                        public void onRespnseComplete(String response) {
+                            Toast.makeText(MainActivity.this, "تم اضافة المطب بنجاح", Toast.LENGTH_LONG).show();
+                        }
+                    };
                 }
-            };
+
+            }catch (Exception e){
+
+            }
+
+
+
+
 
         }
     }
-
-
     private Location getLastKnownLocation() {
         locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
         List<String> providers = locationManager.getProviders(true);

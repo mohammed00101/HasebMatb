@@ -75,7 +75,7 @@ public class DrawerFragment extends Fragment {
             drawerItem[3] = new DataModel(R.drawable.logout, "تسجيل الدخول");
             // startService(new Intent(this,MyInstanceIDService.class ));
 
-        }{
+        }else {
             drawerItem[3] = new DataModel(R.drawable.logout, "تسجيل الخروج");
         }
 
