@@ -19,6 +19,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
@@ -27,6 +28,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.util.FloatMath;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.abdulrahman.hasebmatb.R;
 import com.abdulrahman.hasebmatb.helper.Constants;
@@ -75,32 +77,33 @@ public class GPS_Service extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        setArrayList();
+        new Task().execute();
+//        setArrayList();
+//
+//        isServiceRuning = true;
+//        currentLocation = new CurrentLocation(getBaseContext()){
+//            @Override
+//            public void currentLocation(Location location) {
+//                super.currentLocation(location);
+//
+//                nextMatb = new Location(location.getProvider());
+//                for (MatbLocation matb : arrayList) {
+//                    nextMatb.setLatitude(matb.getLat());
+//                    nextMatb.setLongitude(matb.getLng());
+////                    latLng2=new LatLng(nextMatb.getLatitude(),nextMatb.getLongitude());
+//                    newdDistance = location.distanceTo(nextMatb);
+//                    //Log.d(">>>>>>>>>>>>.",location.getLatitude()+"   "+location.getLongitude()+" 1+2 "+nextMatb.getLatitude()+"   "+  nextMatb.getLongitude()+"="+dist);
+////                   dist=distanceBetween(latLng1,latLng2);
+//                    if(newdDistance>= 0  && newdDistance <Constants.DISTINATION  ){
+//                        Constants.RunAlarm(getBaseContext());
+//                       // oldDistance = newdDistance;
+//                    }
+//                }
+//                //send Notification
+//            }
+//        };
 
-        isServiceRuning = true;
-        currentLocation = new CurrentLocation(getBaseContext()){
-            @Override
-            public void currentLocation(Location location) {
-                super.currentLocation(location);
-
-                nextMatb = new Location(location.getProvider());
-                for (MatbLocation matb : arrayList) {
-                    nextMatb.setLatitude(matb.getLat());
-                    nextMatb.setLongitude(matb.getLng());
-//                    latLng2=new LatLng(nextMatb.getLatitude(),nextMatb.getLongitude());
-                    newdDistance = location.distanceTo(nextMatb);
-                    //Log.d(">>>>>>>>>>>>.",location.getLatitude()+"   "+location.getLongitude()+" 1+2 "+nextMatb.getLatitude()+"   "+  nextMatb.getLongitude()+"="+dist);
-//                   dist=distanceBetween(latLng1,latLng2);
-                    if(newdDistance>= 0  && newdDistance <Constants.DISTINATION  ){
-                        Constants.RunAlarm(getBaseContext());
-                       // oldDistance = newdDistance;
-                    }
-                }
-                //send Notification
-            }
-        };
-
-        return super.onStartCommand(intent, flags, startId);
+        return START_STICKY;
     }
 
     @Override
@@ -116,6 +119,45 @@ public class GPS_Service extends Service {
             String json = userSharedPreferences.getString("Matb", null);
             Type type = new TypeToken<  ArrayList<MatbLocation> >() {}.getType();
             arrayList= gson.fromJson(json, type);
+        }
+    }
+
+
+    class  Task extends AsyncTask<Void,Void,Void>{
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+//            while (true){
+                setArrayList();
+
+
+            isServiceRuning = true;
+                currentLocation = new CurrentLocation(getBaseContext()){
+                    @Override
+                    public void currentLocation(Location location) {
+                        super.currentLocation(location);
+
+                        nextMatb = new Location(location.getProvider());
+                        for (MatbLocation matb : arrayList) {
+                            nextMatb.setLatitude(matb.getLat());
+                            nextMatb.setLongitude(matb.getLng());
+//                    latLng2=new LatLng(nextMatb.getLatitude(),nextMatb.getLongitude());
+                            newdDistance = location.distanceTo(nextMatb);
+                            //Log.d(">>>>>>>>>>>>.",location.getLatitude()+"   "+location.getLongitude()+" 1+2 "+nextMatb.getLatitude()+"   "+  nextMatb.getLongitude()+"="+dist);
+//                   dist=distanceBetween(latLng1,latLng2);
+                            if(newdDistance>= 0  && newdDistance <Constants.DISTINATION  ){
+                                Constants.RunAlarm(getBaseContext());
+                                Toast.makeText(GPS_Service.this, "lllllllllllllllllllllllllllllllllll", Toast.LENGTH_SHORT).show();
+                                // oldDistance = newdDistance;
+                            }
+                        }
+                        //send Notification
+                    }
+                };
+//            }
+            return null;
+
         }
     }
 }

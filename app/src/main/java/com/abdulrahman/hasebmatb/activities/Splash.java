@@ -2,7 +2,9 @@ package com.abdulrahman.hasebmatb.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -24,6 +26,10 @@ public class Splash extends AppCompatActivity {
         userSharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
         editor = userSharedPreferences.edit();
         handler = new Handler();
+
+        turnGPSOn();
+
+
 
         new Thread(new Runnable() {
             @Override
@@ -63,4 +69,17 @@ public class Splash extends AppCompatActivity {
 
 
     }
+
+    private void turnGPSOn(){
+        String provider = Settings.Secure.getString(getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+
+        if(!provider.contains("gps")){ //if gps is disabled
+            final Intent poke = new Intent();
+            poke.setClassName("com.android.settings", "com.android.settings.widget.SettingsAppWidgetProvider");
+            poke.addCategory(Intent.CATEGORY_ALTERNATIVE);
+            poke.setData(Uri.parse("3"));
+            sendBroadcast(poke);
+        }
+    }
+
 }

@@ -94,10 +94,8 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = (Button) findViewById(R.id.login_login);
         skiptoHomeBtn = (Button) findViewById(R.id.login_skiptoHome);
         signupTxt = (TextView) findViewById(R.id.login_signupTxt);
-
         email = (TextView) findViewById(R.id.login_email_editTxt);
         password = (TextView) findViewById(R.id.login_password_editTxt);
-
         userSharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
         editor = userSharedPreferences.edit();
 
@@ -105,7 +103,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void send_login_data(View v) {
-
         new WebConnectionTask(getBaseContext(), "login.php", new HashMap<String, String>() {{
             put("email", email.getText().toString());
             put("password", password.getText().toString());
@@ -125,11 +122,8 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                     Toast.makeText(LoginActivity.this, "تأكد من الايميل وكلمة السر", Toast.LENGTH_LONG).show();
                 }
-
             }
         };
-
-
     }
 
 

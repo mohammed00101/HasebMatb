@@ -9,6 +9,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -52,6 +53,7 @@ public  class CurrentLocation implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
+        Toast.makeText(context, "on location ", Toast.LENGTH_SHORT).show();
         currentLocation(location);
     }
 
