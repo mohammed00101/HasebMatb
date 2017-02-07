@@ -25,7 +25,7 @@ public  class CurrentLocation implements LocationListener {
         this.context = context;
         try {
             locationManager = (LocationManager) context.getSystemService(context.LOCATION_SERVICE);
-
+//
             // Getting Current Location From GPS
             location = getLastKnownLocation();
 
