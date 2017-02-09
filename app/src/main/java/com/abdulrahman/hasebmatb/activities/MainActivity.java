@@ -423,10 +423,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
             Toast.makeText(this, "برجاء تسجيل دخولك لتتمكن من اضافة مطب", Toast.LENGTH_LONG).show();
 
         }else {
-
             try{
-
-
                 if (location!=null)   {
                     new WebConnectionTask(getBaseContext(), "insertMatb.php", new HashMap<String, String>() {{
                         put("userId", "" +userSharedPreferences.getInt("userId", 0));
@@ -445,11 +442,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
             }catch (Exception e){
 
             }
-
-
-
-
-
         }
     }
     private Location getLastKnownLocation() {

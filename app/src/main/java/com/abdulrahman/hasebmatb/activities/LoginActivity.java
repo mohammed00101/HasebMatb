@@ -37,7 +37,7 @@ import java.util.Set;
 public class LoginActivity extends AppCompatActivity {
 
 
-    Button loginBtn, skiptoHomeBtn;
+    Button loginBtn;
     TextView signupTxt, email, password;
     SharedPreferences userSharedPreferences;
     SharedPreferences.Editor editor;
@@ -71,16 +71,6 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         } //
-
-
-        skiptoHomeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
         signupTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
 
     void init() {
         loginBtn = (Button) findViewById(R.id.login_login);
-        skiptoHomeBtn = (Button) findViewById(R.id.login_skiptoHome);
+//        skiptoHomeBtn = (Button) findViewById(R.id.login_skiptoHome);
         signupTxt = (TextView) findViewById(R.id.login_signupTxt);
         email = (TextView) findViewById(R.id.login_email_editTxt);
         password = (TextView) findViewById(R.id.login_password_editTxt);
